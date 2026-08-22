@@ -13,7 +13,7 @@ resource "aws_secretsmanager_secret" "master" {
 }
 
 resource "aws_secretsmanager_secret_version" "master" {
-  secret_id     = aws_secretsmanager_secret.master.id
+  secret_id = aws_secretsmanager_secret.master.id
   secret_string = jsonencode({
     username = "tallyfin"
     password = random_password.master.result
