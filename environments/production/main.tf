@@ -31,7 +31,8 @@ provider "aws" {
 }
 
 module "database" {
-  source     = "../../modules/database"
-  name       = "tallyfin-production"
-  subnet_ids = var.private_subnet_ids
+  source              = "../../modules/database"
+  name                = "tallyfin-production"
+  subnet_ids          = var.private_subnet_ids
+  rotation_lambda_arn = var.rotation_lambda_arn
 }
