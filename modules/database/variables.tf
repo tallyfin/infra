@@ -19,3 +19,15 @@ variable "allowed_security_group_ids" {
   type        = list(string)
   default     = []
 }
+
+variable "rotation_lambda_arn" {
+  description = "Lambda that rotates the master password. Rotation is off when null."
+  type        = string
+  default     = null
+}
+
+variable "rotation_days" {
+  description = "Days between master password rotations."
+  type        = number
+  default     = 30
+}

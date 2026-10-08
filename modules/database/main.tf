@@ -33,4 +33,9 @@ resource "aws_db_instance" "this" {
   backup_retention_period = 14
   deletion_protection     = true
   skip_final_snapshot     = false
+
+  lifecycle {
+    # Secrets Manager rotates the password; don't reset it on apply.
+    ignore_changes = [password]
+  }
 }
